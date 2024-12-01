@@ -3,7 +3,7 @@ name: Python cicd
 on:
   pull_request:
     branches:
-      - development
+      - develop
 
 
 
