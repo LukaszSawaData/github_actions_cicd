@@ -1,7 +1,9 @@
 name: Python cicd
 
-on: 
-  push: 
+on:
+  pull_request:
+    branches:
+      - development
 
 
 
