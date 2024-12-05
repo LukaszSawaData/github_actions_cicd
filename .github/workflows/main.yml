@@ -10,7 +10,6 @@ on:
     types : [opened,synchronize]
   workflow_dispatch: 
 
-
 jobs: 
   gitleaks: 
     name: Gitleaks(Secrets)
