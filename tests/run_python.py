@@ -31,7 +31,8 @@ data = '{"links":[{"rel":"self","href":"https:dsadsadsa/2100","action":"GET"}],"
 # Get JobID
 job_id = extract_value(data, 'jobId')
 print(f"Job ID: {job_id}")
-
+print(f"Job ID: {job_id}")
 # Get JobStatus
 job_status = extract_value(data, 'jobStatus')
+print(f"Job Status: {job_status}")
 print(f"Job Status: {job_status}")
