@@ -1,16 +1,7 @@
 import json
 
 def extract_value(json_string, key):
-    """
-    Extracts the value of the specified key from a JSON string.
-
-    Parameters:
-        json_string (str): The JSON-like string.
-        key (str): The key whose value needs to be extracted.
-
-    Returns:
-        The value of the specified key, or None if the key is not found or if the JSON is invalid.
-    """
+ 
     try:
         # Parse the JSON string into a dictionary
         parsed_data = json.loads(json_string)
@@ -22,7 +13,7 @@ def extract_value(json_string, key):
             print("Parsed data is not a dictionary.")
             return None
     except json.JSONDecodeError as e:
-        print(f"JSON decoding error: {e}")
+        print({e})
         return None
 
 # Example usage
