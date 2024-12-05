@@ -36,3 +36,6 @@ print(f"Job ID: {job_id}")
 job_status = extract_value(data, 'jobStatus')
 print(f"Job Status: {job_status}")
 print(f"Job Status: {job_status}")
+password = "e2weeLukddsx"
+Acess_token = "dasd111dsadas sqdsadsa"
+token = "ddsssa"
