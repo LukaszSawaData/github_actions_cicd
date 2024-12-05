@@ -1,0 +1,93 @@
+title = "Gitleaks Configuration for Python and PySpark Projects"
+
+[log]
+  redacted = true
+
+[allowlist]
+  description = "Allowlist for safe patterns"
+  files = ["test/", "docs/"]
+  commits = []
+  paths = []
+
+[[allowlist.regex]]
+  description = "Allow commented-out keys"
+  regex = "dummy|example|localhost|127\\.0\\.0\\.1"
+
+[[allowlist.files]]
+  description = "Exclude test data"
+  files = ["test_data/*"]
+
+[regexes]
+  description = "Custom regex patterns for Python and PySpark sensitive data"
+
+  # AWS Access Key ID
+  [[rules]]
+    description = "AWS Access Key ID"
+    regex = "AKIA[0-9A-Z]{16}"
+    tags = ["key", "AWS"]
+
+  # AWS Secret Access Key
+  [[rules]]
+    description = "AWS Secret Access Key"
+    regex = "aws_secret_access_key\\s*[:=]\\s*[\"']?[a-zA-Z0-9/+=]{40}[\"']?"
+    tags = ["key", "AWS"]
+
+  # Database connection strings
+  [[rules]]
+    description = "Database Connection String"
+    regex = "(postgres|mysql|mongodb|redis):\\/\\/.*:.*@.*:\\d+\\/"
+    tags = ["database", "connection"]
+
+  # API Keys
+  [[rules]]
+    description = "Generic API Key"
+    regex = "[a-zA-Z0-9_]{8,32}\\.[a-zA-Z0-9_]{8,32}\\.[a-zA-Z0-9_]{8,32}"
+    tags = ["api", "key"]
+
+  # Private keys
+  [[rules]]
+    description = "Private Key"
+    regex = "-----BEGIN (RSA|DSA|EC|OPENSSH|PGP|PRIVATE) KEY-----"
+    tags = ["key", "private"]
+
+  # Slack Tokens
+  [[rules]]
+    description = "Slack Token"
+    regex = "xox[baprs]-[0-9]{12}-[0-9]{12}-[a-zA-Z0-9]{24}"
+    tags = ["api", "slack"]
+
+  # GitHub Tokens
+  [[rules]]
+    description = "GitHub Token"
+    regex = "gh[pousr]_[A-Za-z0-9_]{36,40}"
+    tags = ["api", "github"]
+
+  # Google Cloud Keys
+  [[rules]]
+    description = "Google Cloud API Key"
+    regex = "AIza[0-9A-Za-z-_]{35}"
+    tags = ["api", "google"]
+
+[files]
+  # Python and PySpark-specific exclusions
+  [[files]]
+    description = "Exclude common Python cache and virtual environment directories"
+    paths = ["__pycache__/", "*.pyc", "venv/", ".envrc"]
+
+  [[files]]
+    description = "Exclude data and log files"
+    paths = ["*.log", "*.csv", "*.parquet"]
+
+  [[files]]
+    description = "Exclude PySpark temporary directories"
+    paths = ["spark-warehouse/", ".sparkStaging/"]
+
+  # Ignore test files
+  [[files]]
+    description = "Ignore test files for Python"
+    paths = ["test_*.py", "tests/"]
+
+[scanners]
+  description = "Advanced scanners for secret detection"
+  entropy = true
+  max_entropy = 4.5
