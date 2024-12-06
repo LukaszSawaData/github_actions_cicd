@@ -1,0 +1,7 @@
+[regex]
+  # Match passwords
+  pattern = "(?i)(password|pwd|pass|passwd)([=:].+)?[ \t]*(\S+)"
+  # Match API keys
+  pattern = "[^a-zA-Z0-9_](AKIA|access_key|aws_secret_access_key|api_key|apikey|google|gc)[^a-zA-Z0-9_]"
+  # Match SSH keys
+  pattern = "-----BEGIN (RSA|DSA|EC|OPENSSH) PRIVATE KEY----"
