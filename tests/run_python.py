@@ -1,4 +1,10 @@
-import json
+import os
+import sys
+
+import numpy as np
+import requests
+from my_project.module import something
+
 
 def extract_value(json_string, key):
     """
@@ -25,14 +31,15 @@ def extract_value(json_string, key):
         print(f"JSON decoding error: {e}")
         return None
 
+
 # Example usage
 data = '{"links":[{"rel":"self","href":"https:dsadsadsa/2100","action":"GET"}],"status":0,"details":null,"jobId":2100,"jobStatus":"SUCCESS","logFileName":"outbox/logs/ABG_EDPExp_2100.log","outputFileName":"outbox/dasdsa.dat","processType":"COMM_LOAD_BALANCES","executedBy":"dddsx"}'
 
 # Get JobID
-job_id = extract_value(data, 'jobId')
+job_id = extract_value(data, "jobId")
 print(f"Job ID: {job_id}")
 print(f"Job ID: {job_id}")
 # Get JobStatus
-job_status = extract_value(data, 'jobStatus')
+job_status = extract_value(data, "jobStatus")
 print(f"Job Status: {job_status}")
 print(f"Job Status: {job_status}")
