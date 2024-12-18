@@ -38,8 +38,11 @@ jobs:
         uses: snok/install-poetry@v1.3.4
         with:
           virtualenvs-in-project: true
-      - run: poetry config http-basic.pg_jfrog "${{ secrets.JFROG_USERNAME }}" "${{ secrets.JFROG_PASSWORD }}"
+      - name: Check Poetry Version
+        run: poetry --version
       - run: poetry install
+      - name: Check Poetry Version
+        run: poetry --version
       - name: Run Snyk to Check for Vulnerabilities
         uses: snyk/actions/python-3.10@master
         env:
