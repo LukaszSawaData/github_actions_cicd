@@ -6,11 +6,6 @@ import requests
 from my_project.module import something
 
 
-def do_something(a, b): print("Doing something with:", a, "and",
-                              b); 
-   result = a + b; print("Result is", result); return result
-
-
 def calculate(x, y, operation="add"):
     if operation == "add":
         return x + y
