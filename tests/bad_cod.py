@@ -21,7 +21,7 @@ def calculate(x, y, operation="add"):
 
 
 a, b = 1, 2
-do_something(a, b)
+
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 result = []
 for n in nums:
@@ -39,8 +39,6 @@ for i in range(20):
         print("FizzBuzz")
     else:
         print("None")
-
-
 
 
 def check_numbers(nums):
@@ -61,7 +59,7 @@ check_numbers(nums)
 def long_loop_function():
     for x in range(50):
         for y in range(10):
-        print(x, "*", y, "=", x * y)
+            print(x, "*", y, "=", x * y)
 
 
 long_loop_function()
@@ -77,28 +75,59 @@ h = 8
 i = 9
 j = 10
 print(a, b, c, d, e, f, g, h, i, j)
-def redundant_func1(): pass ; def redundant_func2(): pass; def redundant_func3(): pass
-def check_prime(n): if n < 2: return False; for i in range(2, int(n**0.5) + 1): if n % i == 0: return False; return True
+
+
+def redundant_func1():
+    pass
+
+
+def redundant_func2():
+    pass
+
+
+def redundant_func3():
+    pass
+
+
+def check_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
 
 primes = [n for n in range(100) if check_prime(n)]
 print("Primes:", primes)
 
 
-def string_operations(s): print(s.upper()); print(s.lower()); print(
-    s[::-1]); print(s.replace(" ", "_")); print("Length:", len(s))
+def string_operations(s):
+    print(s.upper())
+    print(s.lower())
+    print(s[::-1])
+    print(s.replace(" ", "_"))
+    print("Length:", len(s))
 
 
 string_operations("This is a test string for black formatter")
 time.sleep(1)
-for x in range(100):
-    if x % 10 == 0:
-        print("Ten:", x)
+
+
+def new_func():
+    for x in range(100):
+        if x % 10 == 0:
+            print("Ten:", x)
         else:
-        pass
+            pass
 
 
-def calculate_area(l, w): return l * w; def calculate_perimeter(l, w): return 2 * (l + w)
+def calculate_area(l, w):
+    return l * w
+
+
+def calculate_perimeter(l, w):
+    return 2 * (l + w)
 
 
 l = 10
@@ -108,23 +137,22 @@ x = [1, 2, 3]
 y = [4, 5, 6]
 z = x + y
 print("Combined list:", z)
-def power_func(x, p): return x**p; print(power_func(2, 3))
+
+
+def power_func(x, p):
+    return x**p
+    print(power_func(2, 3))
 
 
 a = 5
 b = 10
-print(
-    "Sum:",
-    a + b,
-    "Difference:",
-    a - b,
-    "Product:",
-    a * b,
-    "Quotient:",
-    a / b)
+print("Sum:", a + b, "Difference:", a - b, "Product:", a * b, "Quotient:", a / b)
 
 
-def another_long_loop(): for i in range(30): for j in range(5): print("Index", i, j)
+def another_long_loop():
+    for i in range(30):
+        for j in range(5):
+            print("Index", i, j)
 
 
 another_long_loop()
@@ -140,9 +168,14 @@ while a < 20:
     time.sleep(0.1)
 
 
-def edge_cases(): print("Edge Case 1"); print(
-    "Edge Case 2"); print("Edge Case 3")
+def edge_cases():
+    print("Edge Case 1")
+    print("Edge Case 2")
+    print("Edge Case 3")
 
 
 edge_cases()
-def useless_func(): return None
+
+
+def useless_func():
+    return None
