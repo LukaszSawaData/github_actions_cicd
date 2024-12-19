@@ -76,4 +76,4 @@ jobs:
       - name: Run isort
         run: isort --profile black .
       - name: Check Formatting
-        run: black --check --diff --verbose
+        run: black --check --diff --verbose .
