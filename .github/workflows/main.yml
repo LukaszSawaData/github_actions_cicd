@@ -70,7 +70,7 @@ jobs:
         uses: snok/install-poetry@v1.3.4
         with:
           virtualenvs-in-project: true
-          options: --check --verbose
+          options: "--check --verbose"
       - name: Black
         uses: jpetrucciani/black-check@24.3.0
       - name: Run isort
