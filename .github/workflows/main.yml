@@ -39,7 +39,7 @@ jobs:
           echo "run-tests=true" >> "$GITHUB_OUTPUT"
         else
           git fetch origin "$GITHUB_BASE_REF" --depth=1
-
+        fi
   gitleaks: 
     name: Gitleaks(Secrets)
     runs-on: ubuntu-latest
