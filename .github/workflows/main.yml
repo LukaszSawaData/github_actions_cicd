@@ -40,6 +40,8 @@ jobs:
         else
           git fetch origin "$GITHUB_BASE_REF" --depth=1
         fi
+      shell: /usr/bin/bash -e {0}
+
   gitleaks: 
     name: Gitleaks(Secrets)
     runs-on: ubuntu-latest
