@@ -39,8 +39,8 @@ jobs:
           echo "run-tests=true" >> "$GITHUB_OUTPUT"
         else
           git fetch origin "$GITHUB_BASE_REF" --depth=1
+          git diff --name-only "origin/$GITHUB_BASE_REF.." | grep -qvE '(\.rst$|^Doc|^Misc|^\.pre-commit-config\.yaml$|\.ruff\.toml$|\.md$|mypy\.ini$)' && echo "run-tests=true" >> "$GITHUB_OUTPUT" || true
         fi
-      shell: /usr/bin/bash -e {0}
 
 
   gitleaks: 
