@@ -3,14 +3,43 @@ name: Python cicd
 on:
   push:
     branches:
-
       - main
       - development
   pull_request:
     types : [opened,synchronize]
   workflow_dispatch: 
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}-reusable
+  cancel-in-progress: true
+
+
 jobs: 
+  compute-changes:
+    name: Compute changed files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      config-hash: ${{ steps.config-hash.outputs.hash }}
+      run-cifuzz: ${{ steps.check.outputs.run-cifuzz }}
+      run-docs: ${{ steps.docs-changes.outputs.run-docs }}
+      run-hypothesis: ${{ steps.check.outputs.run-hypothesis }}
+      run-tests: ${{ steps.check.outputs.run-tests }}
+      run-win-msi: ${{ steps.win-msi-changes.outputs.run-win-msi }}
+    steps:
+    - run: >-
+        echo '${{ github.event_name }}'
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+    - name: Check for source changes
+      id: check
+      run: |
+        if [ -z "$GITHUB_BASE_REF" ]; then
+          echo "run-tests=true" >> "$GITHUB_OUTPUT"
+        else
+          git fetch origin "$GITHUB_BASE_REF" --depth=1
+
   gitleaks: 
     name: Gitleaks(Secrets)
     runs-on: ubuntu-latest
