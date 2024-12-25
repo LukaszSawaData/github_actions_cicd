@@ -42,6 +42,7 @@ jobs:
         fi
       shell: /usr/bin/bash -e {0}
 
+
   gitleaks: 
     name: Gitleaks(Secrets)
     runs-on: ubuntu-latest
