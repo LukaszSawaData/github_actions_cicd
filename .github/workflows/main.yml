@@ -50,7 +50,7 @@ jobs:
       container:
         image: ghcr.io/python/autoconf:2024.11.11.11786316759
       timeout-minutes: 60
-      needs: check_source
+      needs: compute-changes
       if: needs.check_source.outputs.run_tests == 'true'
       steps:
         - name: Install Git
