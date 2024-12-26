@@ -1,1 +1,5 @@
+permissions:
+  contents: read
+  actions: write
+  issues: read
 
